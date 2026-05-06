@@ -1,3 +1,4 @@
 node_modules
 .env
 cheese.json
+cheese.db
