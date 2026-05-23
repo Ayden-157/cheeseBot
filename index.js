@@ -109,7 +109,9 @@ if (text.startsWith('!blame')) {
 
     message.reply(output);
   });
+  return;
 }
+
 if (text === '!cheesecount') {
   const id = message.author.id;
 
@@ -134,8 +136,6 @@ if (text === '!cheesecount') {
 if (count === 1000) {
   message.reply("🧀 1000 cheese?! Why do you talk about cheese so much?");
 }
-
-
 
 } else {
   // normal message logic goes here
