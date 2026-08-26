@@ -17,7 +17,8 @@ const client = new Client({
   intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildMembers]
 });
 
-const cheeses = ['cheese', 'cheddar', 'mozzarella', 'gouda', 'parmesan', 'feta', 'swiss'];
+const cheeses = ['cheese', 'cheddar', 'mozzarella', 'gouda', 'parmesan', 'feta', 'swiss', 'brie', 'camembert', 'ricotta', 'provolone', 'gruyere', 'havarti', 'colby',
+   'monterey jack', 'pepper jack', 'asiago', 'fontina', 'manchego', 'gorgonzola'];
 const cheeseCount = {};
 
 client.on('messageCreate', async message => {
