@@ -11,6 +11,15 @@ console.log('FFmpeg path:', ffmpegPath);
 const { Client, GatewayIntentBits } = require('discord.js');
 const sqlite3 = require('sqlite3').verbose();
 
+const db = new sqlite3.Database('./cheese.db');
+
+db.run(`
+  CREATE TABLE IF NOT EXISTS cheese (
+    userId TEXT PRIMARY KEY,
+    count INTEGER
+  )
+`);
+
 const {
   joinVoiceChannel,
   createAudioPlayer,
@@ -185,6 +194,7 @@ console.log(
 
 } else {
   // normal message logic goes here
+  console.log('Normal message received:', text);
   if (hasCheese) {
     const id = message.author.id;
 
