@@ -100,8 +100,8 @@ if (text === '!cheesecount') {
   return;
 }
 
-if (text === '!sound') {
-  console.log('!sound command started');
+if (text === '!cse') {
+  console.log('!cse command started');
 
   const voiceChannel = message.member?.voice?.channel;
 
