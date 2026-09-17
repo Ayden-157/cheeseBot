@@ -37,58 +37,6 @@ if (text.startsWith('!')) {
   // handle commands here (or just ignore for cheese logic)
   // IMPORTANT: stop cheese detection from running
 
-if (text.startsWith('!blame')) {
-  let target = message.mentions.users.first();
-
-  // If no mention, pick random member
-  if (!target) {
-    const fetchedMembers = await message.guild.members.fetch();
-
-    const members = fetchedMembers.filter(
-      member =>
-        !member.user.bot &&
-        member.id !== message.author.id
-    );
-
-    if (members.size === 0) {
-      return message.reply("There’s no one else to blame 😔");
-    }
-
-    const randomMember = members.random();
-    target = randomMember.user;
-  }
-
-  // safety checks
-  if (target.bot) {
-  // check if it's YOUR cheese bot
-  if (target.username?.toLowerCase().includes("cheese")) {
-    return message.reply("I refuse to blame myself 😤");
-  }
-
-  return message.reply("I’m not blaming a bot 😤");
-}
-
-  if (target.id === message.author.id) {
-    return message.reply("You just blamed yourself 💀");
-  }
-
-  const blameMessages = [
-    `This is all ${target}’s fault 😤`,
-    `Don’t look at me, blame ${target}`,
-    `${target} definitely did it`,
-    `Yeah this one’s on ${target}`,
-    `I saw ${target} do it 👀`
-  ];
-
-  const reply =
-    blameMessages[Math.floor(Math.random() * blameMessages.length)];
-
-  // send reply
-  await message.channel.send(reply);
-
-  return;
-}
-
   if (text === '!cheesetop') {
   db.all(`
     SELECT userId, count
